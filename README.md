@@ -30,3 +30,5 @@
 ​			找到占用端口的任务并杀死进程
 
 4. 配置Minio：// 目前非必须
+5. 安装maven
+6. 打开idea，更新maven仓库，直接运行默认启动类`AdminWebApplication`
