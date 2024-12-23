@@ -33,7 +33,7 @@ mybatis-plus:
       logic-delete-field: isDeleted
 
 minio:
-  endpoint:  http://localhost:9000
+  endpoint:  http://8.154.42.182:19000
   access-key: minioadmin
   secret-key: minioadmin
   bucket-name: lease
