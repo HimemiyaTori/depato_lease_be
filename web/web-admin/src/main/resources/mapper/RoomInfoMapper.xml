@@ -37,10 +37,10 @@
                la.lease_end_date,
                 CASE WHEN la.room_id IS NOT NULL THEN 1 ELSE 0 END AS is_check_in
         from room_info ri
-                 left join lease.apartment_info ai
+                 left join apartment_info ai
                            on ri.apartment_id = ai.id
                                and ai.is_deleted = 0
-                 left join lease.lease_agreement la
+                 left join lease_agreement la
                            on ri.id = la.room_id
                                and la.is_deleted = 0
                                and la.status in (2, 5)
