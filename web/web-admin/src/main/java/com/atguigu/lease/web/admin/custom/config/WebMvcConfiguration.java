@@ -23,10 +23,10 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         registry.addConverterFactory(this.stringToBaseEnumConverterFactory);
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(this.authenticationInterceptor)
-                .addPathPatterns("/admin/**")
-                .excludePathPatterns("/admin/login/**");
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(this.authenticationInterceptor)
+//                .addPathPatterns("/admin/**")
+//                .excludePathPatterns("/admin/login/**");
+//    }
 }
