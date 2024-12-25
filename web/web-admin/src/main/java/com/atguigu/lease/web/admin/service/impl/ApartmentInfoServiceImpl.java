@@ -62,20 +62,19 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
         if (idNotNull) {
             //1. 删除图片列表
             LambdaQueryWrapper<GraphInfo> graphQueryWrapper = new LambdaQueryWrapper<>();
-            graphQueryWrapper.eq(GraphInfo::getId, apartmentSubmitVo.getId());
+            graphQueryWrapper.eq(GraphInfo::getItemId,apartmentSubmitVo.getId());
             graphQueryWrapper.eq(GraphInfo::getItemType, ItemType.APARTMENT);
             graphInfoService.remove(graphQueryWrapper);
             //2. 删除配套列表
             LambdaQueryWrapper<ApartmentFacility> facilityQueryWrapper = new LambdaQueryWrapper<>();
-            facilityQueryWrapper.eq(ApartmentFacility::getId, apartmentSubmitVo.getId());
-            apartmentFacilityService.remove(facilityQueryWrapper);
+            facilityQueryWrapper.eq(ApartmentFacility::getApartmentId,apartmentSubmitVo.getId());            apartmentFacilityService.remove(facilityQueryWrapper);
             //3. 删除杂费列表
             LambdaQueryWrapper<ApartmentFeeValue> feeValueQueryWrapper = new LambdaQueryWrapper<>();
-            feeValueQueryWrapper.eq(ApartmentFeeValue::getId, apartmentSubmitVo.getId());
+            feeValueQueryWrapper.eq(ApartmentFeeValue::getApartmentId, apartmentSubmitVo.getId());
             apartmentFeeValueService.remove(feeValueQueryWrapper);
             //4. 删除标签列表
             LambdaQueryWrapper<ApartmentLabel> labelQueryWrapper = new LambdaQueryWrapper<>();
-            labelQueryWrapper.eq(ApartmentLabel::getId, apartmentSubmitVo.getId());
+            labelQueryWrapper.eq(ApartmentLabel::getApartmentId,apartmentSubmitVo.getId());
             apartmentLabelService.remove(labelQueryWrapper);
         }
         //1. 插入图片列表
